@@ -20,7 +20,7 @@ VALUES ('$_POST[txtusername]', '$_POST[txtemail]', '$passwordhash', 'Utilizador'
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -77,7 +77,7 @@ function verificarConta(){
     }
 
     if($passou == true){
-        header("Location: ../CriarConta.html");
+        header("Location: ../CriarConta.php");
     }else{
         criarConta();
     }

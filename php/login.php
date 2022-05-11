@@ -27,19 +27,23 @@ function login(){
                 $verificar = password_verify($_POST['txtpasswordlog'], $row["password"]);
 
                 if ($verificar){
-                    header("Location: ../index.html");
+                    session_start();
+                    $_SESSION["user"] = $_POST['txtusernamelog'];
+                    header("Location: ../index.php");
                 }else{
-                    header("Location: ../login.html");
+                    header("Location: ../login.php");
                 }
             }else{
-                header("Location: ../login.html");
+                header("Location: ../login.php");
             }
         }
+
+        $conn->close();
     }
-    $conn->close();
+
 }
 
 
-if(isset($_POST['btniniciarsessao'])){
+if (isset($_POST['btniniciarsessao'])){
     login();
 }

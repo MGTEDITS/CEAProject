@@ -23,5 +23,5 @@ PRIMARY KEY (id_utilizador));
 insert into utilizadores(username, email, password, cargo, logado)
 values ('ceacmtv',
 'cea@cm-tvedras.pt',
-'$2y$10$33zG9dvZU.tFXsEIAkeL7.hQFOyp6z8SuPtCcI15j1zZJsxjvdWWq',
+'$2y$10$masU7xYes3vUYwWNld9vIOo6UixtEuLzu4p4Oh91AaSQ5vj.Y7VOy',
 'Administrador', 0);

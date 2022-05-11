@@ -12,7 +12,7 @@
 <header>
     <div class="container">
         <header style="height: 16vh" class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between ">
-            <a href="index.html" class="d-flex align-items-center  text-dark text-decoration-none">
+            <a href="index.php" class="d-flex align-items-center  text-dark text-decoration-none">
                 <img style="width: 8rem" src="Images/logotipo.jpg" alt="" class="bi me-2" role="img"
                      aria-label="Bootstrap"/>
             </a>
@@ -24,8 +24,10 @@
             </ul>
 
             <div class="col-md-2 text-end">
-                <a type="button" href="login.html" class="text-decoration-none link-dark">Iniciar Sessão</a>
-                <button type="button" class="btn btn-outline-dark"><a style="text-decoration: none; color: black" href="CriarConta.html">Criar Conta</a></button>
+                <?php
+                    include("php/designIndex.php")
+                ?>
+
             </div>
         </header>
     </div>

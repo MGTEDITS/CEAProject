@@ -40,15 +40,22 @@
 	<form action="php/login.php" method="post" class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<img style="width: 10rem" src="Images/output-onlinepngtools.png" alt="">
-				</div>
+
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 text-center">Inicie Sessão</h3>
 		      	<form action="#" class="signin-form">
+
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['error'])){
+                        echo '<p style="color: red">Utilizador ou password incorreto</p>';
+                        session_destroy();
+                    }
+
+                    ?>
 		      		<div class="form-group">
 		      			<input name="txtusernamelog" type="text" class="form-control" placeholder="Nome de Utilizador" required>
 		      		</div>

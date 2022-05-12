@@ -9,6 +9,8 @@ function login(){
     $password = "";
     $dbname = "dbcea";
 
+    $next = false;
+
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
@@ -29,16 +31,21 @@ function login(){
                 if ($verificar){
                     session_start();
                     $_SESSION["user"] = $_POST['txtusernamelog'];
-                    header("Location: ../index.php");
-                }else{
-                    header("Location: ../login.php");
+                    $next = true;
                 }
-            }else{
-                header("Location: ../login.php");
             }
         }
 
         $conn->close();
+
+        if ($next == true){
+            header("Location: ../index.php");
+        }else{
+            session_start();
+            $_SESSION['error'] = true;
+            header("Location: ../login.php");
+        }
+
     }
 
 }

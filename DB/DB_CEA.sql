@@ -19,7 +19,7 @@ cargo varchar(100), pfp blob,
 PRIMARY KEY (id_utilizador));
 
 -- Inserir primeiro Admin
--- username: ceacmtv  password: ceambientetv
+    -- username: ceacmtv  password: ceambientetv
 insert into utilizadores(username, email, password, cargo, logado)
 values ('ceacmtv',
 'cea@cm-tvedras.pt',

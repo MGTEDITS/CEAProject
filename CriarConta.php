@@ -37,9 +37,7 @@
 <form action="php/criarconta.php" method="post" class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-5">
-                <img style="width: 10rem" src="Images/output-onlinepngtools.png" alt="">
-            </div>
+
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">

@@ -47,7 +47,7 @@
         </div>
         <div class="carousel-item">
             <img id="background1" class="d-block w-100">
-            <div class="carousel-caption text-start" style="  top: 15rem; left: 5rem">
+            <div class="carousel-caption text-start" style="top: 15rem; left: 5rem">
                 <h1>Projeto Rios</h1>
                 <p class="w-50">It is a long established fact that a reader will be distracted by the readable
                     content of a page when looking at its layout. The point of using Lorem Ipsum

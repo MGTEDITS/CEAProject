@@ -20,6 +20,8 @@
                          aria-label="Bootstrap"/>
                 </a>
 
+
+
                 <?php
                 include("php/cargoget.php")
                 ?>
@@ -43,17 +45,27 @@
 
                         <header class="mb-4">
 
-                            <h1 class="fw-bolder mb-1">Rio Nome</h1>
 
-                            <div class="text-muted fst-italic mb-2">Postado em 12 de Janeiro de 2022</div>
+                                <?php
+                                    echo '<h1 class="fw-bolder mb-1">'.$_SESSION['rio'].'</h1>
+                                <div class="text-muted fst-italic mb-2">Postado em 12 de Janeiro de 2022</div>
 
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!">Projetos</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="">Peixes Nativos</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href=""> Projeto Rios</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href=""> Rios</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="">'.$_SESSION['rio'].'</a>';
+                                ?>
+
+
+
                         </header>
 
-                        <figure  class="mb-4"><img style="width: 100%" class="img-fluid rounded" src="Images/termas-cucos-azenhas-torres-vedras-caminhando-4.jpg" alt="..." /></figure>
+                        <?php
+                        desenvolvimento();
+                        ?>
 
-                        <section class="mb-5">
+
+                       <!-- <section class="mb-5">
                             <h2 class="fw-bolder mb-4 mt-5">Um titulo</h2>
                             <p class="fs-5 mb-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
                             <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
@@ -62,13 +74,40 @@
                             <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every day and I realized I could hold them to myself or share them with people who might be interested.</p>
                             <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
                         </section>
+                        -->
                     </article>
+
+
+                    <section class="mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <form class="mb-4">
+                                    <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+
+                                    <link rel="stylesheet" href="css/comments.css">
+
+                                    <div style="display: flex;">
+                                        <input type="button" class="button-17" style="width: 1rem; margin-top: 1rem; background-image:  url(Images/file.png); background-repeat: no-repeat; background-position: center; background-size: 1rem" role="button">
+                                        <input type="button" class="button-17" style="width: 1rem; margin-top: 1rem; margin-left: 1rem; background-image:  url(Images/image.png); background-repeat: no-repeat; background-position: center; background-size: 1rem" role="button">
+                                        <input type="button" class="button-17" style="width: 1rem; margin-top: 1rem; margin-left: 20%; background-color: #0a53be; background-image:  url(Images/send.png); background-repeat: no-repeat; background-position: center; background-size: 1rem" role="button">
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </section>
+
+
 
                     <section class="mb-5">
                         <div class="card bg-light">
+
+
+
                             <div class="card-body">
 
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+
 
                                 <div class="d-flex mb-4">
 
@@ -154,3 +193,39 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+
+
+
+
+<?php
+    function desenvolvimento(){
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "dbcea";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT imagem, descricao FROM rios where nome = '$_SESSION[rio]'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo ' <figure  class="mb-4"><img style="width: 100%" class="img-fluid rounded" src="'.$row['imagem'].'" alt="..." /></figure>';
+                echo $row['descricao'];
+            }
+
+        }
+
+        $conn->close();
+
+    }
+?>
+
+

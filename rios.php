@@ -45,30 +45,20 @@
                         <p class="lead fw-normal text-muted mb-0">Projeto Rios</p>
                     </div>
                     <div class="row gx-5">
-                        <div class="col-lg-6">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-3" src="Images/termas-cucos-azenhas-torres-vedras-caminhando-4.jpg" alt="..." />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="riodescricao.php">Nome do Rio</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-3 mb-3" src="Images/termas-cucos-azenhas-torres-vedras-caminhando-4.jpg" alt="..." />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="riodescricao.php">Nome do Rio</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="position-relative mb-5 mb-lg-0">
-                                <img class="img-fluid rounded-3 mb-3" src="Images/termas-cucos-azenhas-torres-vedras-caminhando-4.jpg" alt="..." />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="riodescricao.php">Nome do Rio</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="position-relative">
-                                <img class="img-fluid rounded-3 mb-3" src="Images/termas-cucos-azenhas-torres-vedras-caminhando-4.jpg" alt="..." />
-                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="riodescricao.php">Nome do Rio</a>
-                            </div>
-                        </div>
+                        <?php
+                            getrios();
+                        ?>
+
+                        <?php
+                        if (isset($_POST['loli'])){
+                            session_start();
+                            $_SESSION['rio'] = $_POST['loli'];
+                            echo '<script>console.log('.$_SESSION['rio'].')</script>';
+                            header("Location: index.php");
+                        }else{
+                            echo '<script>console.log("nop")</script>';
+                        }
+                        ?>
                     </div>
                 </div>
             </section>
@@ -81,3 +71,48 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+<?php
+
+function getrios(){
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "dbcea";
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT nome, imagem FROM rios";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+                       echo '<div class="col-lg-6">
+                            <form action="php/testezinho.php" method="post" class="position-relative mb-5">
+                                <button type="submit" value="'.$row["nome"].'" name="loli" style="background-color:white; border-color: white; border-style: none;">
+                                <img class="img-fluid rounded-3 mb-3" src="'.$row["imagem"].'" alt="..." />
+                                <h1 class="h3 fw-bolder text-decoration-none link-dark stretched-link" style="text-align: start; margin-left: 1rem" id="testing" >'.$row["nome"].'</h1>
+                                </button>
+                                </form>
+                            </div>';
+        }
+
+    }
+    $conn->close();
+
+}
+
+?>

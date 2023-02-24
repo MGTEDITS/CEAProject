@@ -65,11 +65,49 @@
                         </section>
                     </article>
 
+                    <section class="mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <form class="mb-4" action="projetopeixesnativos.php" method="post">
+                                    <textarea name="txtcomment" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+
+                                    <link rel="stylesheet" href="css/comments.css">
+
+                                    <div style="display: flex;">
+                                        <input type="button" class="button-17" style="width: 1rem; margin-top: 1rem; background-image:  url(Images/file.png); background-repeat: no-repeat; background-position: center; background-size: 1rem" role="button">
+                                        <input type="button" class="button-17" style="width: 1rem; margin-top: 1rem; margin-left: 1rem; background-image:  url(Images/image.png); background-repeat: no-repeat; background-position: center; background-size: 1rem" role="button">
+                                        <input type="submit" name="btnenviar" class="button-17" style="width: 1rem; margin-top: 1rem; margin-left: 20%; background-color: #0a53be; background-image:  url(Images/send.png); background-repeat: no-repeat; background-position: center; background-size: 1rem" role="button" value="" >
+                                    </div>
+
+                                    <?php
+                                    $teste = false;
+                                    if (isset($_POST['btnenviar'])){
+                                        $teste = true;
+                                    }
+
+                                    ?>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </section>
+
                     <section class="mb-5">
                         <div class="card bg-light">
                             <div class="card-body">
 
-                                <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                                <?php
+                                    if ($teste != null && $teste == true){
+                                        echo ' <div class="d-flex mb-4">
+                                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                            <div class="ms-3">
+                                                <div class="fw-bold">'.$_SESSION["user"].'</div>
+                                                     '.$_POST['txtcomment'].'
+                                                </div>
+                                        </div>';
+                                    }
+                                ?>
 
                                 <div class="d-flex mb-4">
 

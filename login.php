@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style2.css">
 
 	</head>
 
@@ -89,10 +89,10 @@
 		</div>
 	</form>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+	<script src="js/jq2uery.min.js"></script>
+  <script src="js/poppe2r.js"></script>
+  <script src="js/bootstrap2.min.js"></script>
+  <script src="js/main2.js"></script>
 
 	</body>
 </html>

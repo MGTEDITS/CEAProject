@@ -9,8 +9,7 @@ if (isset($_SESSION['user'])){
           <img style="width: 4rem; height: 4rem; border-radius: 100%; border-style: dashed;"  src="Images/logotipo.jpg" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
          
           <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
-            <li><a class="dropdown-item" href="#">Configurações</a></li>
+            <li><a class="dropdown-item" href="profile.php">Perfil</a></li>
             <li><a class="dropdown-item" href="php/terminarsessao.php">Terminar Sessão</a></li>
           </ul>
         </li>

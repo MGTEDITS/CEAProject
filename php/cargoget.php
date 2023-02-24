@@ -23,7 +23,7 @@ if (isset($_SESSION["user"])){
         while ($row = $result->fetch_assoc()) {
 
             if ($row['cargo'] == "Administrador"){
-                echo '<ul style="right: 10rem" class="nav col-12 col-md-auto mb-2 gap-5 justify-content-center mb-md-0">
+                echo '<ul class="nav col-12 col-md-auto mb-2 gap-5 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link fs-5 link-dark">Sobre Nós</a></li>
                  <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -36,10 +36,10 @@ if (isset($_SESSION["user"])){
           </ul>
         </li>
       </ul>
-                <li><a href="#" class="nav-link px-2  fs-5 link-dark">Utilizadores</a></li>
+                <li><a href="dashboard.php" class="nav-link px-2  fs-5 link-dark">Dashboard</a></li>
             </ul>';
             }else{
-                echo '<ul style="right: 10rem" class="nav col-12 col-md-auto mb-2 gap-5 justify-content-center mb-md-0">
+                echo '<ul style="right: 3rem" class="nav col-12 col-md-auto mb-2 gap-5 justify-content-center mb-md-0">
                              <li><a href="#" class="nav-link fs-5 link-dark">Sobre Nós</a></li>
                               <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -60,7 +60,7 @@ if (isset($_SESSION["user"])){
     $conn->close();
 }
 else{
-    echo '<ul style="right: 10rem" class="nav col-12 col-md-auto mb-2 gap-5 justify-content-center mb-md-0">
+    echo '<ul style="right: 3rem" class="nav col-12 col-md-auto mb-2 gap-5 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link fs-5 link-dark">Sobre Nós</a></li>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -73,7 +73,7 @@ else{
           </ul>
         </li>
       </ul>
-                <li><a href="#" class="nav-link px-2  fs-5 link-dark">Marcações</a></li>
+       <li><a href="#" class="nav-link px-2  fs-5 link-dark">Marcações</a></li>
         </ul>';
 }
 
